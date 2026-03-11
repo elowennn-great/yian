@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>邢台颐安康养服务中心 | 医养结合 · 品质颐养</title>
+<style>
+/* 全局适老化+暖红黄配色核心设定 */
+*{margin:0;padding:0;box-sizing:border-box;font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+html{scroll-behavior:smooth}
+body{background:#FFF9F0;color:#3A201A;font-size:18px;line-height:1.8} /* 基础字号放大+暖米白护眼背景 */
+
+/* 导航栏适老化+配色升级 */
+.nav{position:fixed;top:0;width:100%;background:rgba(45,19,16,0.95);z-index:9999;transition:all .3s ease}
+.nav-container{max-width:1400px;margin:0 auto;padding:0 30px;height:90px;display:flex;align-items:center;justify-content:space-between}
+.logo{color:#fff;font-size:28px;font-weight:700;letter-spacing:1px}
+.logo span{color:#F0C05A}
+.menu a{color:#fff;text-decoration:none;margin-left:40px;font-size:18px;font-weight:500;transition:.3s;position:relative}
+.menu a:hover{color:#F0C05A}
+.menu a::after{content:'';position:absolute;bottom:-8px;left:0;width:0;height:3px;background:#F0C05A;transition:.3s}
+.menu a:hover::after{width:100%}
+
+/* 首屏banner 恢复第一版背景图+红黄配色升级 */
+.hero{width:100%;height:100vh;background:linear-gradient(rgba(196,69,48,0.75),rgba(196,69,48,0.6)),url('https://picsum.photos/id/1005/1920/1080');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:0 20px}
+.hero-box h1{font-size:72px;font-weight:600;margin-bottom:24px;letter-spacing:2px;opacity:0;animation:fadeIn 1.2s .2s forwards}
+.hero-box h1 span{color:#F0C05A}
+.hero-box p{font-size:24px;max-width:900px;margin:0 auto 44px;line-height:1.9;color:#fff;opacity:0;animation:fadeIn 1.2s .5s forwards}
+.btn-gold{display:inline-block;padding:20px 60px;background:#F0C05A;color:#2D1310;border-radius:8px;text-decoration:none;font-size:20px;font-weight:700;transition:.3s;opacity:0;animation:fadeIn 1.2s .8s forwards}
+.btn-gold:hover{background:#E6A838;transform:translateY(-3px);box-shadow:0 6px 16px rgba(240,192,90,0.3)}
+
+@keyframes fadeIn{to{opacity:1;transform:translateY(0)}from{opacity:0;transform:translateY(20px)}}
+
+/* 通用板块适老化设定 */
+.section{max-width:1400px;margin:120px auto;padding:0 30px}
+.section-title{text-align:center;margin-bottom:70px}
+.section-title h2{font-size:48px;color:#2D1310;font-weight:600;margin-bottom:12px}
+.section-title p{color:#66443E;font-size:20px}
+.title-line{width:80px;height:4px;background:#C44530;margin:20px auto}
+
+/* 服务体系卡片 适老化+配色升级 */
+.service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;margin-top:40px}
+.service-card{background:#fff;padding:40px;border-radius:12px;box-shadow:0 8px 24px rgba(196,69,48,0.08);border-top:5px solid #C44530}
+.service-card h3{font-size:26px;color:#2D1310;margin-bottom:20px;font-weight:600}
+.service-card p{font-size:18px;line-height:1.8;color:#3A201A;white-space:pre-line}
+
+/* 充值套餐板块 配色+适老化升级 + 整体居中 */
+.card-group{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+  margin-top:40px;
+  max-width:1200px; /* 限制最大宽度，保证居中效果 */
+  margin-left:auto;  /* 左右自动边距实现居中 */
+  margin-right:auto;
+  justify-items:center; /* 网格项水平居中 */
+}
+.charge-card{
+  background:#fff;
+  border-radius:12px;
+  padding:45px 30px;
+  text-align:center;
+  box-shadow:0 8px 24px rgba(196,69,48,0.08);
+  border-top:5px solid #C44530;
+  transition:.3s;
+  width:100%; /* 保证卡片宽度一致 */
+  max-width:280px; /* 限制卡片最大宽度，避免过宽 */
+}
+.charge-card:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(196,69,48,0.15)}
+.charge-card h3{font-size:26px;color:#2D1310;margin-bottom:16px;font-weight:600}
+.charge-card .money{font-size:32px;color:#C44530;font-weight:700;margin-bottom:10px}
+.charge-card .gift{color:#66443E;font-size:18px;margin-bottom:8px}
+.charge-card .total{color:#2D1310;font-size:19px;font-weight:600}
+
+/* 案例板块 配色+适老化升级 */
+.case-area{background:#2D1310;padding:120px 0}
+.case-area .section-title h2{color:#fff}
+.case-area .section-title p{color:#E8D8D5}
+.case-grid{max-width:1400px;margin:0 auto;padding:0 30px;display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:30px}
+.case-item{border-radius:12px;overflow:hidden;transition:.3s;background:#3D1F1A}
+.case-item:hover{transform:scale(1.02);box-shadow:0 10px 25px rgba(240,192,90,0.2)}
+.case-item img{width:100%;height:240px;object-fit:cover;display:block}
+.case-info{padding:24px;background:#3D1F1A}
+.case-info h4{color:#fff;font-size:22px;margin-bottom:8px;font-weight:600}
+.case-info p{color:#E8D8D5;font-size:16px}
+
+/* 服务优势板块 配色+适老化升级 + 整体居中 */
+.advantage{background:#FFF3E6;padding:100px 0;text-align:center} /* 新增整体居中 */
+.adv-box{
+  max-width:800px; /* 限制宽度，保证居中视觉效果 */
+  margin:0 auto;   /* 左右自动边距实现居中 */
+  padding:0 30px;
+  text-align:left; /* 保持文字左对齐，仅容器居中 */
+}
+.adv-item{padding:22px 0;border-bottom:1px solid #E8C8C0;font-size:20px;color:#2D1310;font-weight:500}
+.adv-item span{color:#C44530;font-weight:700;margin-right:12px;font-size:22px}
+
+/* 表单板块 配色+适老化升级 */
+.form-box{max-width:800px;margin:0 auto;background:#fff;padding:60px;box-shadow:0 10px 30px rgba(196,69,48,0.08);border-radius:12px}
+.form-title{text-align:center;font-size:32px;margin-bottom:40px;color:#2D1310;font-weight:600}
+.form-group{margin-bottom:30px}
+.form-group input,.form-group textarea{width:100%;padding:20px;border:2px solid #E8C8C0;border-radius:8px;font-size:18px;outline:none;transition:.3s;background:#FFFDFA}
+.form-group input:focus,.form-group textarea:focus{border-color:#C44530}
+.form-btn{width:100%;padding:20px;background:#C44530;color:#fff;border:none;border-radius:8px;font-size:20px;font-weight:700;cursor:pointer;transition:.3s}
+.form-btn:hover{background:#A83220;transform:translateY(-2px);box-shadow:0 6px 16px rgba(196,69,48,0.3)}
+
+/* 页脚 适老化+配色升级 */
+.footer{background:#2D1310;color:#E8D8D5;text-align:center;padding:60px 30px;font-size:16px}
+
+/* 移动端适配 额外放大字号 */
+@media(max-width:768px){
+.menu{display:none}
+.hero-box h1{font-size:48px}
+.hero-box p{font-size:20px}
+.section-title h2{font-size:38px}
+.form-box{padding:30px}
+.adv-item{font-size:18px}
+/* 移动端充值套餐保持居中 */
+.card-group{padding:0 20px}
+.charge-card{max-width:100%}
+/* 移动端服务优势保持居中 */
+.adv-box{max-width:100%}
+}
+</style>
+</head>
+<body>
+<div class="nav">
+  <div class="nav-container">
+    <div class="logo">邢台<span>颐安</span>康养服务中心</div>
+    <div class="menu">
+      <a href="#home">首页</a>
+      <a href="#service">服务体系</a>
+      <a href="#charge">充值套餐</a>
+      <a href="#org">服务案例</a>
+      <a href="#advantage">服务优势</a>
+      <a href="#contact">预约咨询</a>
+    </div>
+  </div>
+</div>
+
+<section class="hero" id="home">
+  <div class="hero-box">
+    <h1>邢台<span>颐安</span>康养 · 守护品质晚年</h1>
+    <p>医养结合 · 医护值守 · 个性化照护 · 让每一位长者安心、舒心、暖心</p>
+    <a href="#contact" class="btn-gold">立即预约参观</a>
+  </div>
+</section>
+
+<section class="section" id="service">
+  <div class="section-title">
+    <h2>颐安康养服务体系</h2>
+    <p>专业 · 安全 · 温暖 · 尊贵</p>
+    <div class="title-line"></div>
+  </div>
+  <div class="service-grid">
+    <div class="service-card">
+      <h3>🏠 居家保洁</h3>
+      <p>• 按次/周预约，分普通保洁（全屋除尘、厨卫/台面/马桶清洁、衣物清洗、垃圾清运）与深度保洁（增玻璃清洗、沙发除螨、家电内部清洁）。</p>
+    </div>
+    <div class="service-card">
+      <h3>🏥 社区与上门健康服务</h3>
+      <p>• 社区定点体检（55–70岁）：月1–2次公益筛查（血压、血糖、心电等），建健康档案；常规体检50–100元。
+• 上门轻体检（71岁+行动不便/独居）：月度80–150元/次，含生命体征监测，可选心电/用药核对，可购周/月/季包。</p>
+    </div>
+    <div class="service-card">
+      <h3>🩺 慢病专项随访</h3>
+      <p>针对高血压、糖尿病、冠心病、慢阻肺、骨关节病、认知下降、睡眠障碍、焦虑/轻度抑郁，提供监测指导、护理干预、心理疏导与社交陪伴。</p>
+    </div>
+    <div class="service-card">
+      <h3>🛒 增值服务</h3>
+      <p>代购全品类商品，配套专业陪诊。</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="charge" style="background:#FFF3E6;padding:100px 0;margin:0">
+  <div class="section-title">
+    <h2>颐安充值套餐</h2>
+    <p>充值越多 · 赠送越多 · 更划算</p>
+    <div class="title-line"></div>
+  </div>
+  <div class="card-group">
+    <div class="charge-card">
+      <h3>体验卡</h3>
+      <div class="money">200 元</div>
+      <div class="gift">赠送：0 元</div>
+      <div class="total">实际可用：200 元</div>
+    </div>
+    <div class="charge-card">
+      <h3>银龄卡</h3>
+      <div class="money">500 元</div>
+      <div class="gift">赠送：50 元</div>
+      <div class="total">实际可用：550 元</div>
+    </div>
+    <div class="charge-card">
+      <h3>金龄卡</h3>
+      <div class="money">1000 元</div>
+      <div class="gift">赠送：150 元</div>
+      <div class="total">实际可用：1150 元</div>
+    </div>
+    <div class="charge-card">
+      <h3>孝心卡</h3>
+      <div class="money">2000 元</div>
+      <div class="gift">赠送：400 元</div>
+      <div class="total">实际可用：2400 元</div>
+    </div>
+  </div>
+</section>
+
+<section class="case-area" id="org">
+  <div class="section-title">
+    <h2>颐安康养服务案例</h2>
+    <p>用心服务 · 品质呈现</p>
+    <div class="title-line"></div>
+  </div>
+  <div class="case-grid">
+    <div class="case-item">
+      <img src="E:/2026挑战杯/1.png" alt="健康照护服务">
+      <div class="case-info">
+        <h4>健康照护服务</h4>
+        <p>专业健康监测与日常照护</p>
+      </div>
+    </div>
+    <div class="case-item">
+      <img src="E:/2026挑战杯/2.png" alt="营养膳食服务">
+      <div class="case-info">
+        <h4>营养膳食服务</h4>
+        <p>科学配餐，营养均衡搭配</p>
+      </div>
+    </div>
+    <div class="case-item">
+      <img src="E:/2026挑战杯/3.png" alt="文娱生活服务">
+      <div class="case-info">
+        <h4>文娱生活服务</h4>
+        <p>丰富精神文化与休闲活动</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="advantage" id="advantage">
+  <div class="section-title">
+    <h2>颐安服务优势</h2>
+    <p>选择颐安 · 让家人更放心</p>
+    <div class="title-line"></div>
+  </div>
+  <div class="adv-box">
+    <div class="adv-item"><span>✔</span>邢台本地正规康养品牌，资质齐全，安全可靠</div>
+    <div class="adv-item"><span>✔</span>医护人员值守，突发情况快速响应</div>
+    <div class="adv-item"><span>✔</span>一对一专属照护方案，根据身体状况个性化定制</div>
+    <div class="adv-item"><span>✔</span>星级居住环境，中央空调、24小时热水、无障碍设施</div>
+    <div class="adv-item"><span>✔</span>支持实地参观、体验入住、日间照料</div>
+    <div class="adv-item"><span>✔</span>收费公开透明，无隐形消费，家属可随时探视</div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="form-box">
+    <h3 class="form-title">预约参观 & 专业评估</h3>
+    <form onsubmit="alert('预约提交成功！邢台颐安康养服务中心将尽快与您联系');this.reset();return false;">
+      <div class="form-group">
+        <input type="text" placeholder="您的姓名" required>
+      </div>
+      <div class="form-group">
+        <input type="tel" placeholder="联系电话" required>
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="老人年龄/身体情况">
+      </div>
+      <div class="form-group">
+        <textarea rows="4" placeholder="留言备注"></textarea>
+      </div>
+      <button type="submit" class="form-btn">提交预约 · 我们将尽快与您联系</button>
+    </form>
+  </div>
+</section>
+
+<div class="footer">
+  <p>© 2026 邢台颐安康养服务中心版权所有</p>
+  <br>
+  <p>咨询热线：18630221995 | 地址：河北省邢台市襄都区</p>
+</div>
+</body>
+</html>
